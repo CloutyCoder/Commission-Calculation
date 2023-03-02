@@ -1,0 +1,50 @@
+// Java program to calculate commissions based on sale
+// Using methods
+
+// Import all java.util.packages
+import java.util.*;
+
+// Commission class
+public class Commission {
+   // Main driver method
+   public static void main(String[] args) {
+      
+      // Receiving sales amount
+      double salesAmount;
+      Scanner input = new Scanner(System.in);
+      
+      System.out.println("Enter sale amount: ");
+      salesAmount = 10000;
+      
+      // test program
+      int n = 11;
+      for (int i = 0; i < n; i++) {
+         calcCommission(salesAmount);
+         salesAmount += 5000;
+      }
+   }
+   
+   // Commission calculation method
+   public static void calcCommission(double salesAmount) {
+      double commission, medCommission, highCommission;
+      
+      // up to 5k commission rate
+      if (salesAmount <= 5000) {
+         commission = (salesAmount * .08);
+         System.out.println(commission);
+         
+      //  5k to 10k commission rate
+      } else if (salesAmount > 5000 && salesAmount <= 10000) {
+            commission = (5000 * .08);
+            medCommission = (salesAmount - 5000) * .10 + commission;
+            System.out.println(medCommission);
+            
+      // above 10k commission rate
+      } else if (salesAmount > 10000) {
+         commission = (5000 * .08);
+         medCommission = (5000 * .10) + commission;
+         highCommission = (salesAmount - 10000) * .12 + medCommission;
+         System.out.println(highCommission);
+      }
+   }
+}
